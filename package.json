@@ -1,0 +1,23 @@
+{
+  "name": "stem-css",
+  "version": "0.0.1",
+  "main": "./style.styl",
+  "author": "Alex Tkachenko <preusx.dev@gmail.com>",
+  "license": "MIT",
+  "description": "Utility mixins for stylus preprocessor",
+  "keywords": [
+    "stylus",
+    "mixin",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/preusx/stem-css.git"
+  },
+  "scripts": {
+    "test": "node ./test-runner.js"
+  },
+  "devDependencies": {
+    "stylus-test-runner": "git://github.com/preusx/stylus-test-runner.git#master"
+  }
+}
