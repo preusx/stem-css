@@ -2,7 +2,7 @@
  * Variables
  * ======================================================================== */
 
-$grid_selector      ?= 'gr'
+$grid_prefix        ?= 'gr'
 $grid_column_count  ?= 12
 $grid_gutter_width  ?= 20px
 $grid_direction     ?= DIRECTION
@@ -167,5 +167,5 @@ gr-build($count=$grid_column_count, $gutter=$grid_gutter_width)
 
 
 if $grid_build
-    .{$grid_selector}
+    .{$grid_prefix}
         gr-build()

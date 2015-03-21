@@ -1,0 +1,86 @@
+/* ========================================================================
+ *
+ * SPACING
+ *
+ * An eight step powers of two scale ranging from 0 to 16rem.
+ *
+ * Legend:
+ *
+ * p = padding
+ * m = margin
+ *
+ * a = all
+ * x = horizontal(x coord)
+ * y = vertical(y coord)
+ * t = top
+ * r = right
+ * b = bottom
+ * l = left
+ *
+ * n = none
+ * xs = extra small
+ * s = small
+ * m = medium
+ * l = large
+ * x = extra
+ * xl = extra large
+ * xxl = extra extra large
+ *
+ * Inspired by: https://www.npmjs.com/package/tachyons-spacing
+ *
+ * ======================================================================== */
+
+@require './utility'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$spacing_prefix     ?= ''
+$spacing_responsive ?= false
+$spacing_build      ?= false
+$spacing_start      ?= 0.25rem
+$spacing_factor     ?= 2
+
+$spacing_properties  = extend({
+        'p': {
+            'a': ('padding')
+            'x': ('padding-left' 'padding-right')
+            'y': ('padding-top'  'padding-bottom')
+            't': ('padding-top')
+            'r': ('padding-right')
+            'b': ('padding-bottom')
+            'l': ('padding-left')
+        },
+        'm': {
+            'a': ('margin')
+            'x': ('margin-left' 'margin-right')
+            'y': ('margin-top'  'margin-bottom')
+            't': ('margin-top')
+            'r': ('margin-right')
+            'b': ('margin-bottom')
+            'l': ('margin-left')
+        }
+    }, $spacing_types)
+
+$spacing_size_types ?= ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
+$spacing_sizes       = { 'n': 0 }
+
+for $type, $i in $spacing_size_types
+    $spacing_sizes[$type] = $spacing_start * ($spacing_factor ** $i)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+spacing-build($responsive=$spacing_responsive)
+    $selector = selector('&')
+    $template = !$selector ? '.%s' : $selector + $bem_ps + '%s'
+
+    property-assort($spacing_properties, $spacing_sizes, $template, $responsive)
+
+
+if $spacing_build
+    .{$spacing_prefix}
+        spacing-build()
