@@ -1,0 +1,18 @@
+// @describe Rapid / Font size
+
+// @it font-size-build() :: Simple invoke
+@require 'patterns/rapid/font-size'
+
+font-size-build(false)
+
+// @expects
+.fs1{font-size:2rem}.fs2{font-size:1.5rem}.fs3{font-size:1.25rem}.fs4,.fs5{font-size:1rem}.fsn{font-size:0}.fss{font-size:.85rem}.fsxl{font-size:4rem}.fsxxl{font-size:6rem}
+
+
+// @it font-size-build() :: Responsive invoke
+@require 'patterns/rapid/font-size'
+
+font-size-build(true)
+
+// @expects
+.fs1,.fs1--xs{font-size:2rem}@media only screen and (min-width:40.0625em){.fs1--sm{font-size:2rem}}@media only screen and (min-width:62.0625em){.fs1--md{font-size:2rem}}@media only screen and (min-width:76.5625em){.fs1--lg{font-size:2rem}}.fs2,.fs2--xs{font-size:1.5rem}@media only screen and (min-width:40.0625em){.fs2--sm{font-size:1.5rem}}@media only screen and (min-width:62.0625em){.fs2--md{font-size:1.5rem}}@media only screen and (min-width:76.5625em){.fs2--lg{font-size:1.5rem}}.fs3,.fs3--xs{font-size:1.25rem}@media only screen and (min-width:40.0625em){.fs3--sm{font-size:1.25rem}}@media only screen and (min-width:62.0625em){.fs3--md{font-size:1.25rem}}@media only screen and (min-width:76.5625em){.fs3--lg{font-size:1.25rem}}.fs4,.fs4--xs,.fs5,.fs5--xs{font-size:1rem}@media only screen and (min-width:40.0625em){.fs4--sm{font-size:1rem}}@media only screen and (min-width:62.0625em){.fs4--md{font-size:1rem}}@media only screen and (min-width:76.5625em){.fs4--lg{font-size:1rem}}@media only screen and (min-width:40.0625em){.fs5--sm{font-size:1rem}}@media only screen and (min-width:62.0625em){.fs5--md{font-size:1rem}}@media only screen and (min-width:76.5625em){.fs5--lg{font-size:1rem}}.fsn,.fsn--xs{font-size:0}@media only screen and (min-width:40.0625em){.fsn--sm{font-size:0}}@media only screen and (min-width:62.0625em){.fsn--md{font-size:0}}@media only screen and (min-width:76.5625em){.fsn--lg{font-size:0}}.fss,.fss--xs{font-size:.85rem}@media only screen and (min-width:40.0625em){.fss--sm{font-size:.85rem}}@media only screen and (min-width:62.0625em){.fss--md{font-size:.85rem}}@media only screen and (min-width:76.5625em){.fss--lg{font-size:.85rem}}.fsxl,.fsxl--xs{font-size:4rem}@media only screen and (min-width:40.0625em){.fsxl--sm{font-size:4rem}}@media only screen and (min-width:62.0625em){.fsxl--md{font-size:4rem}}@media only screen and (min-width:76.5625em){.fsxl--lg{font-size:4rem}}.fsxxl,.fsxxl--xs{font-size:6rem}@media only screen and (min-width:40.0625em){.fsxxl--sm{font-size:6rem}}@media only screen and (min-width:62.0625em){.fsxxl--md{font-size:6rem}}@media only screen and (min-width:76.5625em){.fsxxl--lg{font-size:6rem}}

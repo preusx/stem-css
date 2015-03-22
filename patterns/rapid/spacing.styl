@@ -1,6 +1,6 @@
 /* ========================================================================
  *
- * SPACING
+ * Spacing
  *
  * An eight step powers of two scale ranging from 0 to 16rem.
  *
@@ -30,7 +30,7 @@
  *
  * ======================================================================== */
 
-@require './utility'
+@require 'utility'
 
 /**
  * Variables
@@ -61,7 +61,7 @@ $spacing_properties  = extend({
             'b': ('margin-bottom')
             'l': ('margin-left')
         }
-    }, $spacing_types)
+    }, $spacing_properties)
 
 $spacing_size_types ?= ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
 $spacing_sizes       = { 'n': 0 }
