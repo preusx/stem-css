@@ -27,8 +27,8 @@ $font-size_responsive ?= false
 $font-size_build      ?= false
 
 $font-size_properties  = extend({
-        'f': {
-            's': ('font-size')
+        'fs': {
+            '': ('font-size')
         },
     }, $font-size_properties)
 
@@ -51,7 +51,7 @@ $font-size_sizes       = {
 
 font-size-build($responsive=$font-size_responsive)
     $selector = selector('&')
-    $template = !$selector ? '.%s' : $selector + $bem_ps + '%s'
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
     property-assort($font-size_properties, $font-size_sizes, $template, $responsive)
 

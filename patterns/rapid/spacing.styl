@@ -76,7 +76,7 @@ for $type, $i in $spacing_size_types
 
 spacing-build($responsive=$spacing_responsive)
     $selector = selector('&')
-    $template = !$selector ? '.%s' : $selector + $bem_ps + '%s'
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
     property-assort($spacing_properties, $spacing_sizes, $template, $responsive)
 
