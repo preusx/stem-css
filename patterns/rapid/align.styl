@@ -1,0 +1,94 @@
+/* ========================================================================
+ *
+ * Align
+ *
+ * Legend:
+ *
+ * fl = float
+ * ta = text-align
+ * va = vertical-align
+ *
+ * n       = none
+ * l       = left
+ * r       = right
+ * c       = center
+ * base    = baseline
+ * sub     = sub
+ * sup     = super
+ * txt-top = text-top
+ * txt-btm = text-bottom
+ * mid     = middle
+ * top     = top
+ * btm     = bottom
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-floats
+ *      https://www.npmjs.com/package/tachyons-text-align
+ *      https://www.npmjs.com/package/tachyons-vertical-align
+ *
+ * ======================================================================== */
+
+@require 'utility'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$align_prefix     ?= ''
+$align_responsive ?= false
+$align_build      ?= false
+
+$align_sizes       = {
+    'l': unquote('left')
+    'r': unquote('right')
+}
+
+$valign_sizes       = {
+    'base':    unquote('baseline')
+    'sub':     unquote('sub')
+    'sup':     unquote('super')
+    'txt-top': unquote('text-top')
+    'txt-btm': unquote('text-bottom')
+    'mid':     unquote('middle')
+    'top':     unquote('top')
+    'btm':     unquote('bottom')
+}
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+float-build($responsive=$align_responsive)
+    $selector = selector('&')
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+
+    property-assort({'fl': {'': ('float')}},
+        extend({'n': unquote('none')}, $align_sizes), $template, $responsive)
+
+
+text-align-build($responsive=$align_responsive)
+    $selector = selector('&')
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+
+    property-assort({'ta': {'': ('text-align')}},
+        extend({'c': unquote('center')}, $align_sizes), $template, $responsive)
+
+
+vertical-align-build($responsive=$align_responsive)
+    $selector = selector('&')
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+
+    property-assort({'va': {'': ('vertical-align')}}, $valign_sizes,
+        $template, $responsive)
+
+
+align-build($responsive=$align_responsive)
+    float-build($responsive)
+    text-align-build($responsive)
+    vertical-align-build($responsive)
+
+
+if $align_build
+    .{$align_prefix}
+        align-build()
