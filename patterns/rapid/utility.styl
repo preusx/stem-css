@@ -2,10 +2,11 @@
  * Mixins
  * ======================================================================== */
 
+
 /**
  * Used to assort given properies width some value.
  */
-property-assort($properties, $sizes, $template, $responsive)
+rapid-property-assort($properties, $sizes, $template, $responsive)
     for $p_name, $p_list in $properties
         for $p_type in $p_list
             $p_props = $p_list[$p_type]

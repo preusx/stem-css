@@ -22,17 +22,17 @@
  * Variables
  * ======================================================================== */
 
-$font-size_prefix     ?= ''
-$font-size_responsive ?= false
-$font-size_build      ?= false
+$rapid_font-size_prefix     ?= ''
+$rapid_font-size_responsive ?= false
+$rapid_font-size_build      ?= false
 
-$font-size_properties  = extend({
+$rapid_font-size_properties  = extend({
         'fs': {
             '': ('font-size')
         },
-    }, $font-size_properties)
+    }, $rapid_font-size_properties)
 
-$font-size_sizes       = {
+$rapid_font-size_sizes       = {
     'n': 0
     's': .85rem
     '5': 1rem
@@ -49,13 +49,15 @@ $font-size_sizes       = {
  * Mixins
  * ======================================================================== */
 
-font-size-build($responsive=$font-size_responsive)
+rapid-font-size-build($responsive=$rapid_font-size_responsive)
     $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' +\
+        $bem_ps
 
-    property-assort($font-size_properties, $font-size_sizes, $template, $responsive)
+    rapid-property-assort($rapid_font-size_properties, $rapid_font-size_sizes,
+        $template, $responsive)
 
 
-if $font-size_build
-    .{$font-size_prefix}
-        font-size-build()
+if $rapid_font-size_build
+    .{$rapid_font-size_prefix}
+        rapid-font-size-build()

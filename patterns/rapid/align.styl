@@ -34,16 +34,16 @@
  * Variables
  * ======================================================================== */
 
-$align_prefix     ?= ''
-$align_responsive ?= false
-$align_build      ?= false
+$rapid_align_prefix     ?= ''
+$rapid_align_responsive ?= false
+$rapid_align_build      ?= false
 
-$align_sizes       = {
+$rapid_align_sizes       = {
     'l': unquote('left')
     'r': unquote('right')
 }
 
-$valign_sizes       = {
+$rapid_valign_sizes       = {
     'base':    unquote('baseline')
     'sub':     unquote('sub')
     'sup':     unquote('super')
@@ -59,36 +59,36 @@ $valign_sizes       = {
  * Mixins
  * ======================================================================== */
 
-float-build($responsive=$align_responsive)
+rapid-float-build($responsive=$rapid_align_responsive)
     $selector = selector('&')
     $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
-    property-assort({'fl': {'': ('float')}},
-        extend({'n': unquote('none')}, $align_sizes), $template, $responsive)
+    rapid-property-assort({'fl': {'': ('float')}},
+        extend({'n': unquote('none')}, $rapid_align_sizes), $template, $responsive)
 
 
-text-align-build($responsive=$align_responsive)
+rapid-text-align-build($responsive=$rapid_align_responsive)
     $selector = selector('&')
     $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
-    property-assort({'ta': {'': ('text-align')}},
-        extend({'c': unquote('center')}, $align_sizes), $template, $responsive)
+    rapid-property-assort({'ta': {'': ('text-align')}},
+        extend({'c': unquote('center')}, $rapid_align_sizes), $template, $responsive)
 
 
-vertical-align-build($responsive=$align_responsive)
+rapid-vertical-align-build($responsive=$rapid_align_responsive)
     $selector = selector('&')
     $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
-    property-assort({'va': {'': ('vertical-align')}}, $valign_sizes,
+    rapid-property-assort({'va': {'': ('vertical-align')}}, $rapid_valign_sizes,
         $template, $responsive)
 
 
-align-build($responsive=$align_responsive)
-    float-build($responsive)
-    text-align-build($responsive)
-    vertical-align-build($responsive)
+rapid-align-build($responsive=$rapid_align_responsive)
+    rapid-float-build($responsive)
+    rapid-text-align-build($responsive)
+    rapid-vertical-align-build($responsive)
 
 
-if $align_build
-    .{$align_prefix}
-        align-build()
+if $rapid_align_build
+    .{$rapid_align_prefix}
+        rapid-align-build()

@@ -36,13 +36,13 @@
  * Variables
  * ======================================================================== */
 
-$spacing_prefix     ?= ''
-$spacing_responsive ?= false
-$spacing_build      ?= false
-$spacing_start      ?= 0.25rem
-$spacing_factor     ?= 2
+$rapid_spacing_prefix     ?= ''
+$rapid_spacing_responsive ?= false
+$rapid_spacing_build      ?= false
+$rapid_spacing_start      ?= 0.25rem
+$rapid_spacing_factor     ?= 2
 
-$spacing_properties  = extend({
+$rapid_spacing_properties  = extend({
         'p': {
             'a': ('padding')
             'x': ('padding-left' 'padding-right')
@@ -61,26 +61,29 @@ $spacing_properties  = extend({
             'b': ('margin-bottom')
             'l': ('margin-left')
         }
-    }, $spacing_properties)
+    }, $rapid_spacing_properties)
 
-$spacing_size_types ?= ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
-$spacing_sizes       = { 'n': 0 }
+$rapid_spacing_size_types ?= ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
+$rapid_spacing_sizes       = { 'n': 0 }
 
-for $type, $i in $spacing_size_types
-    $spacing_sizes[$type] = $spacing_start * ($spacing_factor ** $i)
+for $type, $i in $rapid_spacing_size_types
+    $rapid_spacing_sizes[$type] = $rapid_spacing_start *\
+        ($rapid_spacing_factor ** $i)
 
 
 /**
  * Mixins
  * ======================================================================== */
 
-spacing-build($responsive=$spacing_responsive)
+rapid-spacing-build($responsive=$rapid_spacing_responsive)
     $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' +\
+        $bem_ps
 
-    property-assort($spacing_properties, $spacing_sizes, $template, $responsive)
+    rapid-property-assort($rapid_spacing_properties, $rapid_spacing_sizes,
+        $template, $responsive)
 
 
-if $spacing_build
-    .{$spacing_prefix}
-        spacing-build()
+if $rapid_spacing_build
+    .{$rapid_spacing_prefix}
+        rapid-spacing-build()
