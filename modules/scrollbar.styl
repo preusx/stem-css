@@ -1,0 +1,42 @@
+/* ========================================================================
+ *
+ * Scrollbar
+ *
+ * Adds nice scrollbar to webkit based browsers.
+ *
+ * ======================================================================== */
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+scrollbar-add($width=6px, $color_handle=rgba(0, 0, 0, .4),
+        $colort_track=rgba(0, 0, 0, 0), $radius=$width)
+    $inactive ?= rgba($color_handle, alpha($color_handle) / 2)
+
+    // Scrollbar styles
+    ::-webkit-scrollbar
+        width $width
+
+        &:horizontal
+            height $width
+
+    // Track
+    ::-webkit-scrollbar-track
+        border-radius $radius
+
+        background-color $color_track
+
+    // Handle
+    ::-webkit-scrollbar-thumb
+        border-radius $radius
+        background-color $color_handle
+
+    ::-webkit-scrollbar-thumbwindow-inactive
+        background-color $inactive
+
+
+    // Resizer
+    ::-webkit-resizer
+        width $width
+        height $width
