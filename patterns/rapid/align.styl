@@ -60,24 +60,21 @@ $rapid_valign_sizes       = {
  * ======================================================================== */
 
 rapid-float-build($responsive=$rapid_align_responsive)
-    $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = rapid_default_template()
 
     rapid-property-assort({'fl': {'': ('float')}},
         extend({'n': unquote('none')}, $rapid_align_sizes), $template, $responsive)
 
 
 rapid-text-align-build($responsive=$rapid_align_responsive)
-    $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = rapid_default_template()
 
     rapid-property-assort({'ta': {'': ('text-align')}},
         extend({'c': unquote('center')}, $rapid_align_sizes), $template, $responsive)
 
 
 rapid-vertical-align-build($responsive=$rapid_align_responsive)
-    $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = rapid_default_template()
 
     rapid-property-assort({'va': {'': ('vertical-align')}}, $rapid_valign_sizes,
         $template, $responsive)

@@ -1,6 +1,15 @@
+@require '../../modules/utils/atom/bem'
+
 /**
  * Mixins
  * ======================================================================== */
+
+/**
+ * Rapid default template
+ */
+rapid_default_template()
+    $selector = selector('&')
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
 
 
 /**
