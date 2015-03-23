@@ -32,17 +32,44 @@ $rapid_font-size_properties  = extend({
         },
     }, $rapid_font-size_properties)
 
+
+/**
+ * 16px size bases typography font sizes
+ * 12, 14, 16, 20 and 34
+ */
+//Base sizes
 $rapid_font-size_sizes       = {
-    'n': 0
-    's': .85rem
-    '5': 1rem
-    '4': 1rem
-    '3': 1.25rem
-    '2': 1.5rem
-    '1': 2rem
-    'xl': 4rem
-    'xxl': 6rem
+    '6':       .75rem    // 12px
+    '5':       .875rem   // 14px
+    '4':       1rem      // 16px
+    '3':       1.25rem   // 20px
+    '2':       1.5rem    // 24px
+    '1':       2.125rem  // 34px
+
+    'none':    0         // 0
+    'big':     2.625rem  // 42px
+    'giant':   3.5rem    // 56px
+    'mega':    6rem      // 96px
 }
+
+// Aliases
+$rapid_font-size_sizes = extend({
+    'small':      $rapid_font-size_sizes['6']
+    'body':       $rapid_font-size_sizes['5']
+    'medium':     $rapid_font-size_sizes['5']
+    'regular':    $rapid_font-size_sizes['5']
+    'caption':    $rapid_font-size_sizes['6']
+    'subhead':    $rapid_font-size_sizes['4']
+    'lead':       $rapid_font-size_sizes['4']
+    'title':      $rapid_font-size_sizes['3']
+    'headline':   $rapid_font-size_sizes['1']
+
+    'n':          $rapid_font-size_sizes.none
+    's':          $rapid_font-size_sizes['6']
+    'l':          $rapid_font-size_sizes.big
+    'xl':         $rapid_font-size_sizes.giant
+    'xxl':        $rapid_font-size_sizes.mega
+}, $rapid_font-size_sizes)
 
 
 /**
