@@ -63,12 +63,7 @@ $rapid_spacing_properties  = extend({
         }
     }, $rapid_spacing_properties)
 
-$rapid_spacing_size_types ?= ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
-$rapid_spacing_sizes       = { 'n': 0 }
-
-for $type, $i in $rapid_spacing_size_types
-    $rapid_spacing_sizes[$type] = $rapid_spacing_start *\
-        ($rapid_spacing_factor ** $i)
+$rapid_spacing_sizes       = extend({ 'n': 0 }, $space)
 
 
 /**

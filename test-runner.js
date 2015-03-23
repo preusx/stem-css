@@ -2,7 +2,7 @@ var testRunnerConfig = {
   describe: 'Stem stylus utils',
   stylus: {
     use: require('./index')(),
-    import: 'modules/utils'
+    import: ['config', 'modules/utils']
   }
 }
 
