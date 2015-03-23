@@ -1,0 +1,44 @@
+/* ========================================================================
+ *
+ * Sizes
+ *
+ * Legend:
+ *
+ * bg = background-color
+ * cl = color
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-heights
+ *      https://www.npmjs.com/package/tachyons-widths
+ *
+ * ======================================================================== */
+
+@require 'utility'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_colors_responsive ?= false
+
+$rapid_colors_properties  = extend({
+        'bg': {
+            '': ('background-color')
+        },
+        'cl': {
+            '': ('color')
+        }
+    }, $rapid_colors_properties)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-colors-build($colors, $responsive=$rapid_colors_responsive)
+    $selector = selector('&')
+    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' +\
+        $bem_ps
+
+    rapid-property-assort($rapid_colors_properties, $colors,
+        $template, $responsive)
