@@ -1,3 +1,61 @@
+@require 'modules/color-palettes'
+@require 'modules/utils/atom/is'
+@require 'modules/utils/atom/convert'
+
 /*
  * Variables
  * ======================================================================== */
+
+// THEME VARIABLES OBJECT
+$th = {}
+
+/**
+ * Colors
+ */
+$th.color = {
+    black:       $color_palettes.clrs.black
+    gray:        $color_palettes.clrs.gray
+    silver:      $color_palettes.clrs.silver
+    white:       $color_palettes.clrs.white
+
+    blue:        $color_palettes.material.blue
+    green:       $color_palettes.material.green
+    yellow:      $color_palettes.material.yellow
+    red:         $color_palettes.material.red
+}
+
+$th.color = extend({
+    background:  $th.color.white
+    primary:     $color_palettes.material.blue_grey
+    accent:      $color_palettes.material.lihgt_blue
+    text:        rgba($th.color.black, .87)
+    itext:       $th.color.white
+    highlight:   $color_palettes.material.yellow
+}, $th.color)
+
+$th.color_ratios = {
+    secondary: .70
+    disabeled: .30
+    dividers:  .12
+    relief:    .05
+}
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+th_color($color, $ratio)
+    if is_array($color)
+        $ratio = $color[1]
+        $color = $color[0]
+
+    if !is_color($color)
+        $color = $th.color[$color]
+
+    $alpha = to_raw_percent(alpha($color)) * $th.color_ratios[$ratio]
+
+    return rgba($color, $alpha)
+
+
+
