@@ -1,0 +1,117 @@
+/* ========================================================================
+ * Inline styling
+ * ======================================================================== */
+
+@require 'base'
+@require 'paragraphs'
+
+
+/**
+ * Styles
+ * ======================================================================== */
+
+// Separator line
+.{$typography_prefix}hr
+hr
+    @extends .{$typography_prefix}p
+
+    box-sizing content-box
+    height 0
+
+    border 0
+    border-top 1px solid $typography_color_divider
+
+// Marked text
+.{$typography_prefix}mark,
+mark
+    padding-left: $space.xs
+    padding-right: $space.xs
+
+    color inherit
+    background #ff0
+
+// Small text
+.{$typography_prefix}small,
+small
+    font-size 85%
+    line-height 1
+
+// Superposition Subposition
+.{$typography_prefix}sub,
+sub,
+.{$typography_prefix}sup,
+sup
+    font-size 75%
+    line-height 0
+    position relative
+
+.{$typography_prefix}sup,
+sup
+    top -0.5em
+
+.{$typography_prefix}sub,
+sub
+    bottom -0.25em
+
+// Bold
+.{$typography_prefix}b,
+b,
+.{$typography_prefix}strong,
+strong
+    font-weight bold
+
+// Italic
+.{$typography_prefix}i,
+i,
+.{$typography_prefix}em,
+em,
+.{$typography_prefix}var,
+var,
+.{$typography_prefix}dfn,
+dfn // Definition is usually marking with italic font style
+    font-style italic
+
+// Monospace
+.{$typography_prefix}tt,
+tt,
+.{$typography_prefix}code,
+code,
+.{$typography_prefix}output,
+output,
+.{$typography_prefix}pre,
+pre,
+.{$typography_prefix}samp,
+samp,
+.{$typography_prefix}kbd,
+kbd
+    font-family: $base_font_families.mono
+
+// Line through
+.{$typography_prefix}s,
+s,
+.{$typography_prefix}strike,
+strike,
+.{$typography_prefix}del,
+del
+    text-decoration line-through
+
+// Underlined
+.{$typography_prefix}u,
+u,
+.{$typography_prefix}ins,
+ins
+    text-decoration underline
+
+// Abbreviation
+.{$typography_prefix}abbr,
+abbr
+    border-bottom 1px dashed $typography_color_divider
+
+    cursor help
+
+// Address
+.{$typography_prefix}address,
+address
+    @extends .{$typography_prefix}p
+
+    font-style normal

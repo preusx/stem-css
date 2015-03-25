@@ -1,0 +1,47 @@
+/* ========================================================================
+ * Tables
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Styles
+ * ======================================================================== */
+
+table
+    width 100%
+    margin-bottom: $space.line
+
+    border 0 solid transparent
+    border-collapse collapse
+
+    font-size inherit
+    text-align center
+    vertical-align middle
+
+    & td,
+    & th,
+    & tr
+        padding 0
+
+        border 0 solid transparent
+
+        font-size inherit
+        text-align center
+        vertical-align middle
+
+    & td
+        padding: $space.xs $space.s
+
+    & th
+        padding 0
+
+        font-weight bold
+        border 0
+
+
+.{$typography_prefix}table
+    display table
+
+.{$typography_prefix}table-cell
+    display table-cell
