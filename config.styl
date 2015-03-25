@@ -24,7 +24,66 @@ $base_font_families       = {
 }
 
 
-$base_transition_diration ?= .15s
+/**
+ * 16px size bases typography font sizes
+ * 12, 14, 16, 20 and 34
+ */
+//Base sizes
+$font_size       = {
+    '6':       .75rem    // 12px
+    '5':       .875rem   // 14px
+    '4':       1rem      // 16px
+    '3':       1.25rem   // 20px
+    '2':       1.5rem    // 24px
+    '1':       2.125rem  // 34px
+
+    'none':    0         // 0
+    'big':     2.625rem  // 42px
+    'giant':   3.5rem    // 56px
+    'mega':    6rem      // 96px
+}
+
+// Aliases
+$font_size = extend({
+    'small':      $font_size['6']
+    'body':       $font_size['5']
+    'medium':     $font_size['5']
+    'regular':    $font_size['5']
+    'caption':    $font_size['6']
+    'subhead':    $font_size['4']
+    'lead':       $font_size['4']
+    'title':      $font_size['3']
+    'headline':   $font_size['1']
+
+    'n':          $font_size.none
+    's':          $font_size['6']
+    'l':          $font_size.big
+    'xl':         $font_size.giant
+    'xxl':        $font_size.mega
+}, $font_size)
+
+
+/**
+ * Font weights
+ */
+$font_weight = {
+    thin:         100
+    xlight:       200
+    extra_light:  200
+    light:        300
+    book:         400
+    normal:       400
+    medium:       500
+    demi_bold:    600
+    semi_bold:    600
+    semibold:     600
+    bold:         700
+    heavy:        800
+    black:        900
+
+    bolder:       bolder
+    lighter:      lighter
+}
 
 
 /**
@@ -33,7 +92,16 @@ $base_transition_diration ?= .15s
 $space_start         = unit(4px / $base_font_size, 'rem')
 $space_factor        = 2
 $space_size_types    = ('xs' 's' 'm' 'l' 'x' 'xl' 'xxl')
-$space               = {}
+$space               = {
+    'line': unit($base_line_height_ratio * $font_size.body, 'rem')
+}
 
 for $_type, $_i in $space_size_types
     $space[$_type] = $space_start * ($space_factor ** $_i)
+
+
+/**
+ * Transitions
+ */
+$base_transition_function ?= ease
+$base_transition_diration ?= .15s
