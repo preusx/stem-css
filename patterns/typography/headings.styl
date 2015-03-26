@@ -58,38 +58,14 @@ for $i in ('1' '2' '3' '4' '5' '6')
 
 // Headig classes
 .{$typography_prefix}h{$bem_ms}
-    &mega
-        font-size: $font_size.mega
-        line-height $base_line_height_ratio
-
-    &giant
-        font-size: $font_size.giant
-        line-height $base_line_height_ratio
-
-    &big
-        font-size: $font_size.big
-        line-height $base_line_height_ratio
-
-    &headline
-        font-size: $font_size.headline
-        line-height $base_line_height_ratio
+    for $size in ('mega' 'giant' 'big' 'headline' 'title' 'subhead' 'body' 'caption')
+        &{$size}
+            font-size: $font_size[$size]
+            line-height $base_line_height_ratio
 
     &title
-        font-size: $font_size.title
-        font-weight: $font_weight.medium
-        line-height $base_line_height_ratio
-
-    &subhead
-        font-size: $font_size.subhead
-        line-height $base_line_height_ratio
-
     &body
-        font-size: $font_size.body
         font-weight: $font_weight.medium
-        line-height $base_line_height_ratio
 
     &caption
         @extends .{$typography_prefix}ucase
-
-        font-size: $font_size.caption
-        line-height $base_line_height_ratio
