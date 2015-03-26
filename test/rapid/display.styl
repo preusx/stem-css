@@ -1,0 +1,18 @@
+// @describe Rapid / Display
+
+// @it rapid-display-build() :: Simple invoke
+@require 'patterns/rapid/display'
+
+rapid-display-build(false)
+
+// @expects
+.d-n{display:none}.d-i{display:inline}.d-b{display:block}.d-ib{display:inline-block}.d-it{display:inline-table}.d-t{display:table}.d-tc{display:table-cell}.d-tcol{display:table-column}.d-tcolg{display:table-column-group}
+
+
+// @it rapid-display-build() :: Responsive invoke
+@require 'patterns/rapid/display'
+
+rapid-display-build(true)
+
+// @expects
+.d-n,.d-n--xs{display:none}@media only screen and (min-width:48em){.d-n--sm{display:none}}@media only screen and (min-width:62em){.d-n--md{display:none}}@media only screen and (min-width:76.5em){.d-n--lg{display:none}}.d-i,.d-i--xs{display:inline}@media only screen and (min-width:48em){.d-i--sm{display:inline}}@media only screen and (min-width:62em){.d-i--md{display:inline}}@media only screen and (min-width:76.5em){.d-i--lg{display:inline}}.d-b,.d-b--xs{display:block}@media only screen and (min-width:48em){.d-b--sm{display:block}}@media only screen and (min-width:62em){.d-b--md{display:block}}@media only screen and (min-width:76.5em){.d-b--lg{display:block}}.d-ib,.d-ib--xs{display:inline-block}@media only screen and (min-width:48em){.d-ib--sm{display:inline-block}}@media only screen and (min-width:62em){.d-ib--md{display:inline-block}}@media only screen and (min-width:76.5em){.d-ib--lg{display:inline-block}}.d-it,.d-it--xs{display:inline-table}@media only screen and (min-width:48em){.d-it--sm{display:inline-table}}@media only screen and (min-width:62em){.d-it--md{display:inline-table}}@media only screen and (min-width:76.5em){.d-it--lg{display:inline-table}}.d-t,.d-t--xs{display:table}@media only screen and (min-width:48em){.d-t--sm{display:table}}@media only screen and (min-width:62em){.d-t--md{display:table}}@media only screen and (min-width:76.5em){.d-t--lg{display:table}}.d-tc,.d-tc--xs{display:table-cell}@media only screen and (min-width:48em){.d-tc--sm{display:table-cell}}@media only screen and (min-width:62em){.d-tc--md{display:table-cell}}@media only screen and (min-width:76.5em){.d-tc--lg{display:table-cell}}.d-tcol,.d-tcol--xs{display:table-column}@media only screen and (min-width:48em){.d-tcol--sm{display:table-column}}@media only screen and (min-width:62em){.d-tcol--md{display:table-column}}@media only screen and (min-width:76.5em){.d-tcol--lg{display:table-column}}.d-tcolg,.d-tcolg--xs{display:table-column-group}@media only screen and (min-width:48em){.d-tcolg--sm{display:table-column-group}}@media only screen and (min-width:62em){.d-tcolg--md{display:table-column-group}}@media only screen and (min-width:76.5em){.d-tcolg--lg{display:table-column-group}}
