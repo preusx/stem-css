@@ -21,7 +21,7 @@ kbd
 
     font-size: $font_size.small
 
-    background-color $typography_color_divider
+    background-color th_color(text, relief)
 
 
 /**
@@ -34,9 +34,11 @@ pre
 
     padding-left: $space.s
 
-    border 1px solid $typography_color_divider
+    border 1px solid th_color(text, divider)
     border-radius 4px
 
     font-size: $font_size.small
     word-break break-all
     word-wrap break-word
+
+    background-color th_color(text, relief)
