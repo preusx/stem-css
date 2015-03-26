@@ -21,15 +21,15 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 
 /**
  * Variables
  * ======================================================================== */
 
 $rapid_display_prefix     ?= ''
-$rapid_display_responsive ?= false
-$rapid_display_build      ?= false
+$rapid_display_responsive ?= $rapid_responsive
+$rapid_display_build      ?= $rapid_build
 
 $rapid_display_properties  = extend({
         'd': {

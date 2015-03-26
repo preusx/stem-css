@@ -2,6 +2,13 @@
 @require '../../modules/utils/atom/media'
 
 /**
+ * Variables
+ * ======================================================================== */
+
+$rapid_build       ?= false
+$rapid_responsive  ?= false
+
+/**
  * Mixins
  * ======================================================================== */
 
@@ -10,7 +17,8 @@
  */
 rapid_default_template()
     $selector = selector('&')
-    $template = !$selector ? '.%s' + $bem_ps : $selector + $bem_ps + '%s' + $bem_ps
+    $template = (!$selector || $selector == '.') ? '.%s' + $bem_ps :\
+        $selector + $bem_ps + '%s' + $bem_ps
 
 
 /**
@@ -23,7 +31,7 @@ rapid-property-assort($properties, $sizes, $template, $responsive)
 
             for $s_name, $s_size in $sizes
                 $selector = $template % unquote($p_name) + $p_type + $s_name
-                {$selector}
+                /{$selector}
                     if !!$responsive == true
                         +media-respond($bem_ms + '%s', true)
                             for $prop in $p_props

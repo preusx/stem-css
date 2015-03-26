@@ -28,15 +28,15 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 
 /**
  * Variables
  * ======================================================================== */
 
 $rapid_align_prefix     ?= ''
-$rapid_align_responsive ?= false
-$rapid_align_build      ?= false
+$rapid_align_responsive ?= $rapid_responsive
+$rapid_align_build      ?= $rapid_build
 
 $rapid_align_sizes       = {
     'l': unquote('left')

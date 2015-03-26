@@ -7,7 +7,7 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 @require '../../modules/utils/atom/bem'
 @require '../../modules/utils/atom/media'
 
@@ -17,8 +17,8 @@
  * ======================================================================== */
 
 $rapid_flex_prefix     ?= ''
-$rapid_flex_responsive ?= false
-$rapid_flex_build      ?= false
+$rapid_flex_responsive ?= $rapid_responsive
+$rapid_flex_build      ?= $rapid_build
 
 
 /**
@@ -27,11 +27,12 @@ $rapid_flex_build      ?= false
 
 rapid-flex-build($responsive=$rapid_flex_responsive)
     $selector = selector('&')
-    $template = !$selector ? '.%s' : $selector + $bem_ps + '%s'
+    $template = (!$selector || $selector == '.') ? '.%s' :\
+        $selector + $bem_ps + '%s'
 
     $selector = $template % unquote('flex')
 
-    {$selector}
+    /{$selector}
         display -webkit-box
         display -webkit-flex
         display -ms-flexbox

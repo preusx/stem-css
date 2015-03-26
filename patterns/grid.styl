@@ -115,12 +115,13 @@ gr-build($count=$grid_column_count, $gutter=$grid_gutter_width)
     $ps = $bem_ps
     $ms = $bem_ms
 
-    if !$selector
-        $ps = '.'
-        $ms = '.'
+    if !$selector || $selector == '.'
+        $selector = '.'
+        $ps = ''
+        // $ms = '.'
 
     // Blocks
-    &{$ps}
+    /{$selector}{$ps}
         &w
             for $i in 1..$count
                 &{$i}

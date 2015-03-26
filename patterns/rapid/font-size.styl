@@ -16,15 +16,15 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 
 /**
  * Variables
  * ======================================================================== */
 
 $rapid_font-size_prefix     ?= ''
-$rapid_font-size_responsive ?= false
-$rapid_font-size_build      ?= false
+$rapid_font-size_responsive ?= $rapid_responsive
+$rapid_font-size_build      ?= $rapid_build
 
 $rapid_font-size_properties  = extend({
         'fs': {

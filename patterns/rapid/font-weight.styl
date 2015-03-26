@@ -27,15 +27,15 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 
 /**
  * Variables
  * ======================================================================== */
 
 $rapid_font-weight_prefix     ?= ''
-$rapid_font-weight_responsive ?= false
-$rapid_font-weight_build      ?= false
+$rapid_font-weight_responsive ?= $rapid_responsive
+$rapid_font-weight_build      ?= $rapid_build
 
 $rapid_font-weight_properties  = extend({
         'fw': {

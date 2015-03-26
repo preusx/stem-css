@@ -32,15 +32,15 @@
  *
  * ======================================================================== */
 
-@require 'utility'
+@require 'base'
 
 /**
  * Variables
  * ======================================================================== */
 
 $rapid_sizes_prefix     ?= ''
-$rapid_sizes_responsive ?= false
-$rapid_sizes_build      ?= false
+$rapid_sizes_responsive ?= $rapid_responsive
+$rapid_sizes_build      ?= $rapid_build
 
 $rapid_sizes_properties  = extend({
         'wh': {
