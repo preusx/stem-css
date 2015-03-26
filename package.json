@@ -15,9 +15,10 @@
     "url": "git://github.com/preusx/stem-css.git"
   },
   "scripts": {
-    "test": "node ./test-runner.js"
+    "test": "node ./test-runner.js && .\\node_modules\\.bin\\stylus style.styl"
   },
   "devDependencies": {
+    "stylus": "^0.50.0",
     "stylus-test-runner": "git://github.com/preusx/stylus-test-runner.git#master"
   }
 }
