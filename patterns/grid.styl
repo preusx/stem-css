@@ -2,12 +2,18 @@
  * Variables
  * ======================================================================== */
 
-$grid_prefix        ?= 'gr'
-$grid_column_count  ?= 12
-$grid_gutter_width  ?= 20px
-$grid_direction     ?= DIRECTION
-$grid_responsive    ?= true
-$grid_build         ?= false
+$grid_prefix          ?= 'gr'
+$grid_column_count    ?= 12
+$grid_gutter_width    ?= 20px
+$grid_direction       ?= DIRECTION
+$grid_responsive      ?= true
+$grid_build           ?= false
+
+$grid_container_sizes = extend({
+        sm: 720px
+        md: 940px
+        lg: 1140px
+    }, $grid_container_sizes)
 
 /**
  * Mixins
@@ -109,7 +115,8 @@ gr-sidebar($s_width, $position=gr_direction(), $offset=0, $names=('sidebar' 'con
             width 100%
 
 
-gr-build($count=$grid_column_count, $gutter=$grid_gutter_width)
+gr-build($count=$grid_column_count, $gutter=$grid_gutter_width,
+        $responsive=$grid_responsive)
     $gutter /= 2
     $selector = selector('&')
     $ps = $bem_ps
@@ -125,7 +132,7 @@ gr-build($count=$grid_column_count, $gutter=$grid_gutter_width)
         &w
             for $i in 1..$count
                 &{$i}
-                    if $grid_responsive
+                    if $responsive
                         +cache($selector + $ps + 'grid-' + 'w')
                             +media-respond($bem_ms + '%s', true)
                                 /{$selector}{$ps}col&
@@ -140,13 +147,25 @@ gr-build($count=$grid_column_count, $gutter=$grid_gutter_width)
         &o
             for $i in 1..$count
                 &{$i}
-                    if $grid_responsive
+                    if $responsive
                         +media-respond($bem_ms + '%s', true)
                             margin-left gr_size($i, $count)
 
                     else
                         margin-left gr_size($i, $count)
 
+
+        &container
+            display block
+            margin-x auto
+            padding-x $gutter
+
+            if $responsive
+                for $bp, $size in $grid_container_sizes
+                    +media($bp)
+                        width $size + $gutter * 2
+            else
+                width: $grid_container_sizes.md
 
         &row
             @extends $clearfix

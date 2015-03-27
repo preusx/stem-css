@@ -24,9 +24,10 @@ p
             margin-bottom 0
 
 
-.{$typography_prefix}p{$bem_ms}lead
-    @extends .{$typography_prefix}p
+.{$typography_prefix}p{$bem_ms}
+    &lead
+        @extends .{$typography_prefix}p
 
-    font-size: $font_size.lead
+        font-size: $font_size.lead
 
-    // font-weight 300
+        // font-weight 300
