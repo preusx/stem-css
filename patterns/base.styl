@@ -1,15 +1,19 @@
 /**
- * Mixins
+ * Styles
  * ======================================================================== */
 
-base()
-    html,
-    body
-        font-family $base_font_family
-        font-size $base_font_size
-        line-height $base_line_height
+normalize-css()
+clean()
 
-    +text-selection()
-        background-color rgba($th_color_highlight, .35)
+html
+    font-size:   $root_font_size
 
-    scrollbar-add()
+body
+    font-family: $font_family.primary
+    font-size:   $font_size.body
+    line-height: $line_height.body
+
++text-selection()
+    background-color: rgba($th.color.highlight, .35)
+
+scrollbar-add()
