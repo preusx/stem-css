@@ -7,6 +7,12 @@
 normalize-css()
 clean()
 
+*
+    &,
+    &:before,
+    &:after
+        transition none $base_transition_duration $base_transition_function
+
 html
     font-size:   $root_font_size
 

@@ -3,17 +3,7 @@
  * ======================================================================== */
 
 @require 'base'
-
-/**
- * Variables
- * ======================================================================== */
-
-$typography_link_color = extend({
-        link:    #265C83
-        active:  #007BE6
-        hover:   #7FDBFF
-        visited: #265C83
-    }, $typography_link_color)
+@require '../../modules/utils/atom/bem'
 
 
 /**
@@ -27,21 +17,33 @@ a
 
     cursor pointer
 
-    color: $typography_link_color.link
+    color: $th.color.link
     transition-property color, text-decoration
 
-    &:hover
+    &:hover,
+    &:visited:hover
         text-decoration none
-        text-decoration-color transparent
 
-        color: $typography_link_color.hover
+        color: darken($th.color.link, 40%)
 
     &:active
-        color: $typography_link_color.active
+        color: $th.color.red
 
     &:visited
-        color: $typography_link_color.visited
+        color: desaturate($th.color.link, 50%)
 
 
 .{$typography_prefix}link
     text-decoration none
+
+    &{$bem_ms}
+        &on-dark
+            &,
+            &:link,
+            &:visited,
+            &:active
+                color #fff
+
+            &:hover,
+            &:visited:hover
+                color th_color(#fff, secondary)
