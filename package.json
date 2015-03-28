@@ -1,6 +1,6 @@
 {
   "name": "stem-css",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "./style.styl",
   "author": "Alex Tkachenko <preusx.dev@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "node ./test-runner.js && .\\node_modules\\.bin\\stylus style.styl",
-    "compile": ".\\node_modules\\.bin\\stylus style.styl"
+    "compile": ".\\node_modules\\.bin\\stylus style.styl --include-css"
   },
   "devDependencies": {
     "stylus": "^0.50.0",
