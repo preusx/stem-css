@@ -4,7 +4,6 @@
 
 @require 'base'
 @require 'paragraphs'
-@require 'helpers'
 
 
 /**
@@ -25,8 +24,9 @@ h6
         display block
 
         font-family: $font_family.heading
-        font-weight: $font_weight.normal
+        font-weight: $font_weight.bold
         line-height: $line_height.heading
+        letter-spacing: -.04em
         text-rendering optimizeLegibility
         vertical-align baseline
 
@@ -52,9 +52,8 @@ for $i in ('1' '2' '3' '4' '5' '6')
 6
     .{$typography_prefix}h{$bem_ms}&,
     h&
-        @extends .{$typography_prefix}ucase
-
-        font-weight: $font_weight.bold
+        text-transform uppercase
+        letter-spacing .175em
 
 
 // Headig classes
@@ -69,4 +68,5 @@ for $i in ('1' '2' '3' '4' '5' '6')
         font-weight: $font_weight.medium
 
     &caption
-        @extends .{$typography_prefix}ucase
+        text-transform uppercase
+        letter-spacing .175em
