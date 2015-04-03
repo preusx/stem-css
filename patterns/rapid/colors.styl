@@ -8,8 +8,7 @@
  * cl = color
  *
  * Inspired by:
- *      https://www.npmjs.com/package/tachyons-heights
- *      https://www.npmjs.com/package/tachyons-widths
+ *      https://www.npmjs.com/package/tachyons-colors
  *
  * ======================================================================== */
 
@@ -19,9 +18,11 @@
  * Variables
  * ======================================================================== */
 
-$rapid_colors_responsive ?= false
+$rapid_colors_prefix      ?= ''
+$rapid_colors_responsive  ?= false
+$rapid_colors_theme_build ?= false
 
-$rapid_colors_properties  = extend({
+$rapid_colors_properties   = extend({
         'bg': {
             '': ('background-color')
         },
@@ -40,3 +41,8 @@ rapid-colors-build($colors, $responsive=$rapid_colors_responsive)
 
     rapid-property-assort($rapid_colors_properties, $colors,
         $template, $responsive)
+
+
+if $rapid_colors_theme_build
+    .{$rapid_colors_prefix}
+        rapid-colors-build($th.color)
